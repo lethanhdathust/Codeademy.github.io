@@ -1,0 +1,689 @@
+/* GLOBAL */
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+       /* 1 rem = 1 font-size (16px) */
+      /* Trượt mượt mà   */
+       scroll-behavior: smooth;
+}
+body
+{
+    font-family: 'Montserrat', sans-serif; 
+    color:black;
+    background-color: white;
+    letter-spacing: 1px;
+}
+button{
+    background-color: rgb(230, 77, 179);
+    border:1px solid white;
+    color:white;
+    padding:13px 32px;
+    font-size:0.9 rem ;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    border-color:rgb(14, 153, 177) ;
+    transition:all 0.5s;
+}
+h2{
+    font-size:3 rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    letter-spacing: 2px;
+}
+/* *HEADER */
+header{
+    background-color: rgb(71, 20, 97);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    /* todo: trong thuộc tính position khi chúng ta khai báo trc sẽ có index nhỏ hơn cái khai báo sau nên ta khai báo index cho header lớn tí thì sẽ ko bị ghi đè */
+    z-index: 9999;
+}
+.header__content{
+    width: 70%;
+    margin:0 auto;
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
+
+}
+.header__content ul{
+    list-style-type: none;
+
+}
+.header__content ul li{
+    display:inline;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin:0 1rem;
+}
+.header__content ul a{
+    text-decoration: none;
+    color: white;
+    /* transition-property:all ;
+    transition-duration: 1s;
+    transition-delay: 0s;
+    transition-timing-function: linear; */
+    /* *nếu để thuộc tính này ở a:hover thì khi rê chuột vào lên bth nhma khi rê chuột ra hiệu ứng mất liền ( khi mô quên thử lại) */
+    transition: all 0.5s linear ;
+}
+.header__content ul a:hover{
+    color:rgb(197, 84, 154);
+    /* color: #000!important; */   
+     /* background-color: rgb(12, 8, 8)!important; */
+
+}
+.header__content p{
+    color:white;
+    /* font-size: 37px; */
+    font-size: 2.3rem;
+    
+}
+.header__content ul .active a{
+    color:rgb(197, 84, 154);
+}
+/* *CAROUSEL */
+.carousel{
+    background-image: url(../img/b3.jpg);
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    color:white;
+    text-align: center;
+    /* *Chỉ đc khai báo khi có 1 thẻ con duy nhất của nó */
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel__content h1{
+    font-size:3.5 rem;
+}
+.carousel__content p{
+    font-size: 1.1 rem;
+    padding:23px 0;
+    
+}
+
+/* *INTRO */
+.intro{
+    display: grid;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    /* Tương đương cách ở trên  */
+    /* grid-template-columns: repeat(4,25%); */
+    /* fr : phân số , moi column có kích thước 1/4*/
+    grid-template-columns: repeat(4,1fr);
+    
+}
+.intro__ab1{
+    /* Bắt đầu ở line số 2 (line bắt đầu)*/
+    grid-column-start: 2;
+    /* kết thức ở lune số 4 (line kết thúc) */
+    grid-column-end: 4;
+    /* Cách viết khác  */
+    /* grid-column:2 / 4;
+    grid-column: 2 / span 2;=> chiếm 2 cột */
+   background-size:auto;
+}
+.intro__bake{
+    /* grid-column: 1 / 3; */
+    grid-column: 1 / span 2;
+}
+.intro__ab4{
+    grid-column: 3 / span 2;
+}
+.intro__item img{
+    width: 100%;
+    /* Bản chất thẻ img là inline nên sẽ có khoảng trắng nhỏ giữa các ảnh , khai báo block để xóa khoảng trắng đó
+     */
+    display: block;
+}
+.intro__item{
+    display:flex;
+    /* Ccăn chắc phần text */
+    text-align: center;
+
+    /* Căn bố cục vị trí cho flex */
+    align-items: center;
+  
+    /* ko cần dùng vì thẻ con đã chiếm hết thẻ cha rồi ,chỉ dùng khi thẻ con còn khoàng trống
+    justify-content: center;  */
+
+}
+.intro__item h3{
+    font-size:1.5 rem;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.intro__item p{
+    font-size: 0.875 rem;
+    color:#c1c1c1 ;
+    /* Khoảng cách các dòng chữ trong văn bản */
+    line-height: 29px;
+}
+.intro .intro__item:first-child , .intro .intro__item:nth-child(8){
+    background-color: rgb(217, 50, 223);
+
+}
+.intro__text{
+    padding:0 32px;
+
+}
+.intro .intro__item:nth-child(3){
+    background-color: fuchsia;
+}
+.intro .intro__item:nth-child(4){
+    background-color: coral;
+}
+.intro .intro__item:nth-child(6){
+    background-color: darkcyan;
+}
+/* Number */
+.number__content{
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    justify-content: space-around;
+    text-align: center;
+}
+.number {
+    margin: 70px 0;
+    
+}
+/* .number__item p:first-child */
+.number__item p:first-of-type{
+    font-size: 2 rem;
+    color:rgb(111, 32, 185);
+    font-weight: 600;
+}
+.number__item p:last-of-type{
+    font-size: 1.4 rem;
+    font-weight: 700;
+    /* line-height: Khoang cach giua cac the; */
+    letter-spacing: 4px;
+    padding:24px 0 ;
+} 
+/* Service */
+.service{
+    background-image: url(../img/s1.jpg);
+    background-size: cover;
+    text-align: center;    
+    padding: 70px 0 ;
+}
+.service h2{
+    color: white;
+}
+.services__content{
+    width:70%;
+    margin: 0 auto;
+    display: flex;
+    
+}
+.services__item{
+    padding : 0 20px;
+}
+.services__item i{
+    width: 105px;
+    height: 105x;
+    border: 1px solid rgb(172, 52, 122);
+    background-color: antiquewhite;
+    color:blueviolet;
+    font-size: 3.75rem;
+    border-radius: 50%;
+    line-height: 105px;
+    transition: all 0.5s;
+}
+.services__item h3{
+    font-size: 1.5rem;
+    margin:17px 0;
+    font-weight: 700;
+}
+.services__item p{
+    font-size: 0.875rem;
+    padding-bottom:12px ;
+    line-height: 25px;
+}
+.services__item button{
+    padding: 12px 27px;
+    border-width: 2px;
+}
+.services__item:hover i{
+   color: aqua;
+}
+/* *Gallery */
+.gallery{
+    padding: 70px 0;
+    text-align: center;
+}
+.gallery__content
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    /* grid-gap: ; giong voi gap nhung gap ho tro nhieu trinh duyet hon */
+    gap: 30px  ;
+    padding: 0 15px;
+}
+.gallery__g1{
+    grid-column: 1 / 3;
+    /* grid-column: 1 / span 2; */
+}
+.gallery__g6{
+    grid-column: 3 / 5;
+}
+.gallery__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.gallery__item{
+    position: relative;
+    overflow: hidden;
+}
+.gallery__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(223, 216, 207, 0.521);
+    color: white;
+    text-align: right;
+}
+.gallery__overlay p{
+    position:absolute;
+    bottom: 30px;
+    right: 28px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all .5s;
+
+}
+.gallery__overlay h3{
+    font-size: 1.875rem;
+    transform: translateY(20px);
+    transition:all 0.5s ;
+}
+
+.gallery__item:hover .gallery__overlay h3{
+    transform: translateY(0);
+    
+}
+.gallery__overlay h3 span{
+    font-weight: 300;
+}
+/* .gallery__overlay h3::before{
+    content:"The ";
+}
+
+.gallery__overlay h3::after{
+    content:"  !";
+} */
+.gallery__overlay h3::after{
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    display: block;
+    margin-top:10px;
+    transform: translateY(20px);
+    opacity: 0;
+    /* display:none -? ko nen dung*/
+}
+.gallery__item:hover .gallery__overlay h3::after{
+    transform: translateY(0);
+    opacity: 1;
+    /* display: block; -> ko nen dung */
+}
+.gallery__item .gallery__overlay h3::after{
+    transition: all .5s;
+}
+.gallery__item:hover .gallery__overlay p{
+    transform: translateY(0);
+    opacity: 1;
+}
+/* TEAM  */
+.team
+{
+    background-color: blueviolet;
+    padding:70px 0 ;
+}
+.team h2{
+    color: white;
+}
+.team__content{
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+    width: 75%;
+    margin:0 auto;
+    gap: 25px 30px;
+
+}
+.team__item img{
+    width: 100%;
+    display: block;
+
+}
+.team__item{
+position: relative;
+}
+.team__title{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    background-color: aquamarine;
+    color: white;
+    width: 100%;
+    padding: 30px;
+    opacity: 1;
+}
+.team__title h3{
+    font-size: 1.3rem;
+    line-height:28px;
+}
+.team__details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
+    padding: 100px 40px;
+    opacity: 0;
+}
+.team__item:hover .team__details{
+    opacity: 1;
+    transition: all .5s;
+}
+.team__item:hover .team__title{
+    opacity: 0;
+    transition: all .5s;
+}
+.team__details h3{
+    color: tomato;
+}
+.team__socials{
+    margin-top: 24px;
+}
+.team__socials i{
+    width: 37px;
+    height: 37px;
+    border: 1.5px solid rgba(255, 255, 255, 0.568);
+    text-align: center;
+    line-height: 37px;
+    margin:0 5px;
+    transition: all .5s;
+}
+.team__socials i:hover{
+    color: violet;
+    border-color:aqua;
+}
+/* *FEEDBACK  */
+.feedback{
+    background-image: url(../img/cc1.jpg);
+    background-size: cover;
+    padding:70px 0;
+}
+.feedback h2{
+    color: white;
+
+}
+.feedback__content{
+    width: 70% 0;
+    margin: 0 auto ;
+    border: 3px solid rgb(114, 95, 160);
+    background-color: rgba(127, 255, 212, 0.336);
+    text-align: center;
+    padding: 32px;
+}
+.feedback__content i{
+    font-size: 1.3rem;
+    color: aqua;
+    padding: 0 16px;
+}
+.feedback__content h3{
+    color: white;
+
+}
+.feedback__content p{
+    line-height:30px ;
+    letter-spacing: 1.3px;
+}
+.feedback__content .owl-theme .owl-dots .owl-dot span{
+    background-color: rgba(0, 0, 0, 0.644);
+}
+.feedback__content .owl-theme .owl-dots .owl-dot.active span{
+    background-color: black;
+}
+/* CONTACT  */
+.contact__form form{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 auto;
+}
+.contact{
+    padding: 70px 0;
+}
+.contact__form textarea , .contact__form button{
+    grid-column: 1 / 3 ;
+    /* grid-column: 1 / span 2; */
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.contact input {
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all .5s;
+    margin: 10px 30px;
+}
+.contact__form input:focus{
+    outline: none;
+    box-shadow: 0px 0px 4px 2px #b91b1b;
+}
+.contact__form textarea {
+    border: 1px solid black;
+    resize: none;
+    margin: 5px 15px 0 15px;
+}
+.contact__form textarea:focus{
+    outline: none;
+}
+.contact__form textarea::placeholder{
+    color: black;
+}
+.contact__form button:hover{
+    background-color: black;
+    color: wheat;
+    border-color: black;
+}
+.contact__map iframe{
+    width: 100%;
+    margin-top: 50px;
+}
+.contact .contact__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 30px;
+}
+.contact__info i{
+    font-size: 2rem;
+    color: burlywood;
+
+}
+.contact__info p{
+    font-size: 0.8rem;
+    margin: 10px 0;
+}
+/* FOOTER  */
+footer{
+    padding: 50px 0;
+    background-color: black;
+    color: white;
+}
+.footer__main{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    grid-template-columns: repeat(4,1fr);
+}
+.footer__copyright{
+    text-align: center;
+}
+footer h3{
+    color: chartreuse;
+    font-size: 20px;
+    margin-bottom:16px ;
+}
+footer .footer__item{
+    margin: 0 15px;
+    width: 25%;
+    padding: 0 20px;
+    
+}
+footer .footer__less{
+    margin-bottom: 10px;
+
+    border-bottom: 1px solid greenyellow ;
+}
+footer .footer__item p{
+    font-size: 0.8rem;
+    line-height: 20px;
+    padding-bottom: 1rem;
+
+}
+.footer__item .footer__socials i{
+    width: 30px;
+    height: 30px;
+    line-height: 18px;
+    border: 1px solid white;
+    padding: 5px;
+    margin-right: 10px;
+    text-align: center;
+    transition: all 1s;
+}
+footer .footer__item i:hover{
+    color: springgreen;
+    border: 1px solid springgreen;
+}
+.footer__item .footer__less {
+    display: flex;
+    justify-content: space-between;
+}
+footer form input{
+    padding: 10px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+footer form input:focus{
+    outline: none;
+}
+.footer__item .footer__sub button{
+    padding: 7px 16px;
+    margin-bottom: 14px;
+    color: black;
+    border-color:rgb(6, 70, 9) ;
+    font-weight: 600;
+}
+.footer__item .footer__sub button:hover{
+    border-color: tomato;
+    color:rgba(44, 78, 10, 0.733) ;
+
+}
+footer .footer__copyright{
+    font-size: 0.8rem;
+}
+footer .footer__copyright span{
+    color: chartreuse;
+}
+
+/* Back to top  */
+.backtotop i{
+    color: aqua;
+    border: 2px solid aqua;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 36px;
+    border-radius: 50%;
+
+}
+.backtotop {
+    /*  Đi theo thẻ body */
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    opacity: 0;
+    visibility: hidden;
+}
+/* HIển lại nút khi trượt xuống */
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+  }
+
+.team__item2 .team__details{
+    /* opacity: 1; */
+    transform: translateX(-100%);
+}
+.team__item2:hover .team__details
+  {
+      opacity: 1;
+      transform: translateX(0);
+      transition: all .5s;
+  }
+.team__item2{
+    overflow: hidden;
+}
+
+.team__item3:hover .team__details{
+    transform: rotate(360deg);
+}.team__item3 .team__details{
+    transition: all 5s;
+}
+.team__item4:hover .team__details{
+    transform: scale(1);
+}
+.team__item4 .team__details{
+    transform: scale(0);
+}
+
+/* Khai bào chuỗi chuyển động  */
+@keyframes upDown{
+    /* 100s  */
+     0% {
+
+    }
+    50%{
+        transform: translateY(50%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+ } 
+.carousel button:hover{
+    animation: upDown 1s linear 0s 10 ;
+}
+
+  
